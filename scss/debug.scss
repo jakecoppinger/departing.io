@@ -1,0 +1,33 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #E0E0E0;
+    color: #000;
+    font-size: 12px;
+    font-family: Arial, Helvetica;
+}
+canvas {
+    margin: 0;
+    padding: 0;
+
+    position: relative;
+    width: 100%;
+    height: 100%;
+    
+
+}
+#main_overlay {
+    position: absolute;
+    width: 1%;
+    height: 1%;
+    //background-color: #FFFFFF;
+    opacity: 0.2;
+}
+
+
+
+canvas {
+    //background-image: linear-gradient(rgba(239, 74, 74, 0.15), rgba(0, 0, 0, 0.15)), radial-gradient(at 40% 0%, #42C0C8 0%, rgba(84, 90, 182, 0) 100%), radial-gradient(at 0% 100%, rgba(118, 72, 160, 0.8) 0%, rgba(118, 72, 160, 0) 50%);
+    background-color: #0066FF;
+}
