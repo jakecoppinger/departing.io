@@ -7,6 +7,13 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var del = require('del');
+
+// Clean task
+gulp.task('clean', function() {
+    return del(['static/css', 'static/js']);
+});
+
 
 // Lint Task
 gulp.task('lint', function() {
@@ -42,4 +49,6 @@ gulp.task('watch', function() {
 });
 
 // Default Task
-gulp.task('default', ['lint', 'sass', 'scripts']);
+gulp.task('default', ['clean'], function() {
+    gulp.start('lint', 'sass', 'scripts');
+});
