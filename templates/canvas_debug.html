@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <!--[if lt IE 9]>
+            <script type="text/javascript">alert("Your browser does not support the canvas tag.");</script>
+        <![endif]-->
+    <link rel="stylesheet" href='{{ static_url("css/debug.css")}}'>
+    <link rel="stylesheet" href='{{ static_url("components/jquery-ui/themes/smoothness/jquery-ui.css")}}'>
+    <script src='{{ static_url("components/jquery/dist/jquery.js")}}'></script>
+    <script src='{{ static_url("js/interface_debug.js") }}'></script>
+    <script src='{{ static_url("js/processing-1.4.13-experimental.js") }}'></script>
+    <script src='{{ static_url("js/jprocessingjs_retina.js") }}'></script>
+    <script src='{{ static_url("components/moment/moment.js") }}'></script>
+</head>
+
+<body>
+    <div id="hidpidiv">
+        <canvas id="maincanvas" data-processing-sources='{{ static_url("processing/interface.pde") }}'>
+            <h1>Your browser does not support the canvas tag.</h1>
+        </canvas>
+    </div>
+    <noscript>
+        <h1>JavaScript is required to view the contents of this page.</h1>
+    </noscript>
+    <div id="main_overlay">
+    </div>
+</body>
+
+</html>

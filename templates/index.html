@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Departing.io</title>
+    <meta name="description" content="Track how long until your ACTION bus will arrive. A webapp for the Canberra bus network." />
+    <meta name="apple-mobile-web-app-title" content="Departing.io">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="google-site-verification" content="xzORb7stwd6wBkn7BDWipwRDOnwCxxJghI0n915sUMw" />
+    <link rel="shortcut icon" href='{{ static_url("images/webapp_icons/favicon.ico") }}' type="image/x-icon" />
+    <link rel="apple-touch-icon" href='{{ static_url("images/webapp_icons/apple-touch-icon.png") }}' />
+    <link rel="apple-touch-icon" sizes="57x57" href='{{ static_url("images/webapp_icons/apple-touch-icon-57x57.png") }}' />
+    <link rel="apple-touch-icon" sizes="72x72" href='{{ static_url("images/webapp_icons/apple-touch-icon-72x72.png") }}' />
+    <link rel="apple-touch-icon" sizes="76x76" href='{{ static_url("images/webapp_icons/apple-touch-icon-76x76.png") }}' />
+    <link rel="apple-touch-icon" sizes="114x114" href='{{ static_url("images/webapp_icons/apple-touch-icon-114x114.png") }}' />
+    <link rel="apple-touch-icon" sizes="120x120" href='{{ static_url("images/webapp_icons/apple-touch-icon-120x120.png") }}' />
+    <link rel="apple-touch-icon" sizes="144x144" href='{{ static_url("images/webapp_icons/apple-touch-icon-144x144.png") }}' />
+    <link rel="apple-touch-icon" sizes="152x152" href='{{ static_url("images/webapp_icons/apple-touch-icon-152x152.png") }}' />
+    <!-- iPad -->
+    <!-- Portrait -->
+    <link href='{{ static_url("images/landing/iphone/Default-Portrait.png") }}' media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <!-- Landscape -->
+    <link href='{{ static_url("images/landing/iphone/Default-Landscape.png") }}' media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <!-- iPad (Retina) -->
+    <!-- Portrait -->
+    <link href='{{ static_url("images/landing/iphone/Default-Portrait@2x.png") }}' media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- Landscape -->
+    <link href='{{ static_url("images/landing/iphone/Default-Landscape@2x.png") }}' media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPhone 5 -->
+    <link href='{{ static_url("images/landing/iphone/Default-568h@2x.png") }}' media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPhone 4 (Retina) -->
+    <link href='{{ static_url("images/landing/iphone/Default@2x.png") }}' media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPhone 4, 3GS, and iPod -->
+    <link href='{{ static_url("images/landing/iphone/Default.png") }}' media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
+    <!-- iPhone 6 -->
+    <link href='{{ static_url("images/landing/iphone/iphone6-750x1294.png") }}' media="(device-width: 375px) and (device-height: 667px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+    <!-- iPhone 6+ Portrait -->
+    <link href='{{ static_url("images/landing/iphone/iphone6plus-1242x2148.png") }}' media="(device-width: 414px) and (device-height: 736px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image">
+    <!-- iPhone 6+ Landscape -->
+    <link href='{{ static_url("images/landing/iphone/iphone6plus-2208x1182.png") }}' media="(device-width: 414px) and (device-height: 736px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3)" rel="apple-touch-startup-image">
+    <!--[if lt IE 9]>
+        <script type="text/javascript">alert("Your browser does not support this website. Please use Chrome or Firefox.");</script>
+    <![endif]-->
+    <script>
+    window.hostURL = "{{ (host) }}";
+    window.hostPort = "{{ (port) }}"
+    </script>
+    <link href='{{ static_url("css/fonts.css") }}' rel="stylesheet" type="text/css">
+    <link href='{{ static_url("css/landing.css") }}' rel="stylesheet" type="text/css">
+    <link href='{{ static_url("css/about_popup.css") }}' rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href='{{ static_url("components/jquery-ui/themes/smoothness/jquery-ui.css")}}'>
+    <link rel="stylesheet" type="text/css" href='{{ static_url("css/addtohomescreen.css") }}'>
+    <script src='{{ static_url("components/viewport-units-buggyfill/viewport-units-buggyfill.min.js")}}'></script>
+    <script>
+    window.viewportUnitsBuggyfill.init();
+    </script>
+    <script src='{{ static_url("components/jquery/dist/jquery.min.js")}}'></script>
+    <!-- <link rel="stylesheet" href='{{ static_url("js/jquery-ui-1.11.4.custom/jquery-ui.min.css")}}'>
+   -->
+    <!--<script src='{{ static_url("js/jquery-ui-1.11.4.custom/jquery-ui.min.js")}}'></script> -->
+    <script src='{{ static_url("components/jquery-ui/ui/jquery-ui.custom.js")}}'></script>
+    <script src='{{ static_url("js/processing-1.4.13-experimental.min.js") }}'></script>
+    <script src='{{ static_url("js/jprocessingjs_retina.min.js") }}'></script>
+    <script src='{{ static_url("components/moment/min/moment.min.js") }}'></script>
+    <script src='{{ static_url("js/jquery.popupoverlay.min.js") }}'></script>
+    <script src='{{ static_url("js/model.min.js") }}'></script>
+    <script src='{{ static_url("js/controller.min.js") }}'></script>
+    <script src='{{ static_url("js/view.min.js") }}'></script>
+    <script src='{{ static_url("js/addtohomescreen.min.js") }}'></script>
+    <script>
+    addToHomescreen({
+        skipFirstVisit: true,
+        maxDisplayCount: 1
+    });
+    </script>
+    <script type="text/javascript">
+    window.heap = window.heap || [], heap.load = function(t, e) {
+        window.heap.appid = t, window.heap.config = e;
+        var a = document.createElement("script");
+        a.type = "text/javascript", a.async = !0, a.src = ("https:" === document.location.protocol ? "https:" : "http:") + "//cdn.heapanalytics.com/js/heap-" + t + ".js";
+        var n = document.getElementsByTagName("script")[0];
+        n.parentNode.insertBefore(a, n);
+        for (var o = function(t) {
+                return function() {
+                    heap.push([t].concat(Array.prototype.slice.call(arguments, 0)))
+                }
+            }, p = ["clearEventProperties", "identify", "setEventProperties", "track", "unsetEventProperty"], c = 0; c < p.length; c++) heap[p[c]] = o(p[c])
+    };
+    heap.load("2244355629");
+    </script>
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-61283914-1', 'auto');
+    ga('send', 'pageview');
+    </script>
+</head>
+
+<body>
+    <div id="hidpidiv" style="display:none;">
+        <canvas id="maincanvas" data-processing-sources='{{ static_url("processing/interface.pde") }}'>
+            <h1>Your browser does not support the canvas tag. Please use Chrome or Firefox</h1>
+        </canvas>
+    </div>
+    <noscript>
+        <h1>JavaScript is required to view the contents of this page.</h1>
+    </noscript>
+    <div id="main_overlay">
+        <div id="main_page">
+            <div id="main_elements">
+                <h1>Departing.io</h1>
+                <div class="ui-widget">
+                    <input id="address" class="invisibletext" placeholder="Bus Stop Address or ID">
+                </div>
+                <br>
+                <input id="stopid" type="hidden" value="">
+                <h2 class="afterloading_routes">Bus route //</h2>
+                <p id="loadingroutestext" class="loading_routes"></p>
+                <select id="busrouteselect" class="afterloading_routes invisibleselect">
+                </select>
+                <button id="viewbusbutton" class="afterloading_routes" onclick="progressToVisualisation();">View bus</button>
+            </div>
+            <div id="aboutlink">
+                <a class="about_popup_open" href="#">About</a>
+            </div>
+        </div>
+        <div id="about_popup" style="display:none;">
+            <h1>About /</h1>
+            <p><i>"How long until the bus comes?"</i></p>
+            <p>A web app designed to answer this one question well.</p>
+            <p>A web app designed & developed by <a href="http://www.jakecoppinger.com">Jake Coppinger</a> through 2015, and open sourced in January 2016. If you have feedback, feature suggestions or you have found a bug, please don't hesitate to contact me at <a href="mailto:jake@jakecoppinger.com" data-ajax="false">jake@jakecoppinger.com</a>
+                <p>Developers - Feel free to contribute on <a href="https://github.com/jakecoppinger/departing.io">GitHub</a>, and I'll add your name here!
+                </p>
+                <p>See more of my work at my website, <a href="http://www.jakecoppinger.com">jakecoppinger.com</a> </p>
+                <button class="about_popup_close">Close</button>
+        </div>
+    </div>
+</body>
+
+</html>

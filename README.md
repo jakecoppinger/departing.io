@@ -1,1 +1,3 @@
-# departing.io
+# Departing.io
+
+(repository migration in progress)
