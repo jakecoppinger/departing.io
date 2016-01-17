@@ -5,7 +5,7 @@
   "main": "main.py",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall" : "gulp default"
+    "postinstall": "gulp default"
   },
   "repository": {
     "type": "git",
