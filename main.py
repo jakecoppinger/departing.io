@@ -30,7 +30,7 @@ from nxtbus_stops import NxtbusStops
 define("host", default="localhost", help="app host (domain)", type=str)
 define("production",default=0, help="1 if in production, 0 if local", type=int)
 
-port = os.environ.get("PORT", 5000) # 5000 is Heroku's default port
+port = 5000 #os.environ.get("PORT", 5000) # 5000 is Heroku's default port
 
 class Application(tornado.web.Application):
 	def __init__(self):
