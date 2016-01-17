@@ -4,7 +4,7 @@
   "description": "",
   "main": "main.py",
   "scripts": {
-    "postinstall": "gulp default"
+    "postinstall": "bower install & gulp default"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "http://www.departing.io",
   "dependencies": {
+    "bower": "^1.7.2",
     "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-concat": "^2.6.0",
