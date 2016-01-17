@@ -4,7 +4,6 @@
   "description": "",
   "main": "main.py",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "bower install & gulp default"
   },
   "repository": {
