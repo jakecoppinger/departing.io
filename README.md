@@ -2,6 +2,8 @@ Departing.io
 ============
 > **When will the next bus come?**
 
+![Departing.io mockup](departing-io-walking.jpg)
+
 [**Departing.io**](http://www.departing.io) - A web app for real time bus ACTION bus arrivals in Canberra, Australia.
 
 Try it on your smartphone!
