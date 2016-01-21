@@ -38,7 +38,7 @@ Backend.prototype.validStopID = function(stopID, callbackFunction) {
             callbackFunction(stopID, response);
         }
     });
-}
+};
 
 Backend.prototype.stopDepartures = function(stopID, previewInterval, callbackFunction) {
     var requestUrl = "http://" + this.serverHost + ":" + this.serverPort + "/departures";
@@ -55,7 +55,7 @@ Backend.prototype.stopDepartures = function(stopID, previewInterval, callbackFun
             callbackFunction(response);
         }
     });
-}
+};
 
 function BusStop(stopID, addressString, server) {
     this.server = server;
@@ -71,25 +71,25 @@ BusStop.prototype.updateDepartures = function(previewInterval, callbackFunction)
     this.server.stopDepartures(this.stopID, previewInterval, function(response) {
         callbackFunction(response);
     });
-}
+};
 
 BusStop.prototype.setDepartures = function(departures) {
     this.stopDepartures = departures;
-}
+};
 
 BusStop.prototype.updateAvailableBusRoutes = function() {
     var allRoutes = this.stopDepartures;
 
     availableBusRoutes = [];
     $.each(allRoutes, function(index, value) {
-        var busNumber = value["busRouteNumber"];
+        var busNumber = value.busRouteNumber;
         if ($.inArray(busNumber, availableBusRoutes) == -1) {
             availableBusRoutes.push(busNumber);
         }
     });
     this.availableBusRoutes = availableBusRoutes;
     return availableBusRoutes;
-}
+};
 
 BusStop.prototype.validBusRouteSelected = function(busRouteNumber) {
     if (this.availableBusRoutes.indexOf(busRouteNumber) > -1) {
@@ -97,12 +97,12 @@ BusStop.prototype.validBusRouteSelected = function(busRouteNumber) {
     } else {
         return false;
     }
-}
+};
 
 BusStop.prototype.updateJourneysOnBusRoute = function(busRoute) {
     var busRouteJourneys = [];
     $.each(this.stopDepartures, function(index, busJourney) {
-        if (busJourney["busRouteNumber"] == busRoute) {
+        if (busJourney.busRouteNumber == busRoute) {
             busRouteJourneys.push(busJourney);
         }
     });
@@ -116,11 +116,11 @@ BusStop.prototype.fastestBusOnRoute = function(busRouteNumber) {
     var currentTime = moment();
 
     $.each(this.journeysOnBusRoute, function(index, currentBus) {
-        if (fastestBus.length == 0) {
+        if (fastestBus.length === 0) {
             fastestBus = currentBus;
         } else {
-            var currentFastest = moment(fastestBus["departureTime"], moment.ISO_8601);
-            var thisBus = moment(currentBus["departureTime"], moment.ISO_8601);
+            var currentFastest = moment(fastestBus.departureTime, moment.ISO_8601);
+            var thisBus = moment(currentBus.departureTime, moment.ISO_8601);
 
             if (currentFastest.diff(thisBus) > 0) {
                 fastestBus = currentBus;
@@ -128,41 +128,41 @@ BusStop.prototype.fastestBusOnRoute = function(busRouteNumber) {
         }
     });
     return fastestBus;
-}
+};
 
 BusStop.prototype.address = function() {
     return this.addressString;
-}
+};
 
 function Bus(busJourneyObject) {
     this.busJourneyObject = busJourneyObject;
 }
 
 Bus.prototype.departureTimestamp = function() {
-    return this.busJourneyObject["departureTime"];
-}
+    return this.busJourneyObject.departureTime;
+};
 
 Bus.prototype.routeNumber = function() {
-    return this.busJourneyObject["busRouteNumber"];
-}
+    return this.busJourneyObject.busRouteNumber;
+};
 
 Bus.prototype.destination = function() {
-    return this.busJourneyObject["destinationName"];
-}
+    return this.busJourneyObject.destinationName;
+};
 
 Bus.prototype.monitored = function() {
-    if (this.busJourneyObject["monitored"] == "true") {
+    if (this.busJourneyObject.monitored == "true") {
         return true;
     } else {
         return false;
     }
-}
+};
 
 Bus.prototype._durationUntilArrival = function() {
     var departureTime = moment(this.departureTimestamp(), moment.ISO_8601);
     var currentTime = moment();
     return moment.duration(departureTime.diff(currentTime));
-}
+};
 
 
 Bus.prototype.minutesUntilArrival = function() {
@@ -171,19 +171,19 @@ Bus.prototype.minutesUntilArrival = function() {
     var minutes = duration.minutes(); // Fix so it works over 1 hour
     //var seconds = duration.seconds();
     return minutes;
-}
+};
 
 Bus.prototype.secondsUntilArrival = function() {
     var duration = this._durationUntilArrival();
     var seconds = duration.seconds();
     return seconds;
-}
+};
 
 Bus.prototype.exactSecondsUntilArrival = function() {
     var duration = this._durationUntilArrival();
     var seconds = duration.asSeconds() - (duration.minutes() * 60);
     return seconds;
-}
+};
 
 // Future Location Development
 

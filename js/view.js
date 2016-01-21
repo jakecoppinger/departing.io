@@ -22,7 +22,7 @@ function viewAvailableBusRoutes(availableBusRoutes) {
     $.each(availableBusRoutes, function() {
         options.append($("<option />").val(this).text(this));
     });
-};
+}
 
 function secondsUntilNextBus() {
     return window.arrivingBus.exactSecondsUntilArrival();
