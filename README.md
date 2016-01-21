@@ -93,7 +93,7 @@ You can add this line to your `~/.bashrc` file to skip this step in future.
 
 ### Start server 
 
-`python main.py --host=”HOST”`
+`python main.py --host=HOST`
 
 Where HOST is IP address or domain. For testing on local machine, use `localhost`, for testing on local network (including smartphones) use local IP address (`ifconfig`)
 
